@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 def main():
     
-    df = pd.read_excel("site_congestion_history.xlsx")
+    df = pd.read_excel("site_congestion_history_test.xlsx")
     
     start = perf_counter()
     df_output1, stacked_sorted_input = event_competition_calculate(df,
@@ -183,13 +183,7 @@ def event_competition_calculate(_df_input,
 
     
     # create a group object based on identity column (e.g. site)
-    _df_input_stack_group = _df_input_stack.groupby([key_column_identity_id])
-    
-    
-    #pd.DataFrame(_df_input_stack).to_excel("interim2.xlsx")
-    #print("Done")
-    
-    
+    _df_input_stack_group = _df_input_stack.groupby([key_column_identity_id]) 
     
     # define two data frames to collect results.
     df_collect = None
